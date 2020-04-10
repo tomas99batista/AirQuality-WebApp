@@ -1,0 +1,79 @@
+<!doctype html>
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+    <script src="https://kit.fontawesome.com/9002efc044.js" crossorigin="anonymous"></script>
+
+    <title>AirQuality - Mapa</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" style="font-size:25px; font-height: bold;" th:href="@{/lisbon}">AirQuality <i class="fas fa-air-freshener"></i> WebApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/lisbon}">Lisbon</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/madrid}">Madrid <span class="sr-only">(current)</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary bg-success  my-5 py-4 text-center" style="background-color: #fa50a4;">
+        <div class="card-body">
+            <p class="text-white m-0" style="font-size: 40px;">Madrid</p>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row" style="font-size: 18px;">
+        <div class="col-md-7 mb-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="card-title">Station: <span th:text="${info.getName()}"></span></h3>
+                    <p class="card-text">
+                    <ul>
+                        <li><b>AQI: </b><span th:text="${info.getAqi()}">a</span></li>
+                        <li><b>PM2.5: </b><span th:text="${info.getPm25()}">a</span></li>
+                        <li><b>PM10: </b><span th:text="${info.getPm10()}">a</span></li>
+                        <li><b>O3: </b><span th:text="${info.getO3()}">a</span></li>
+                        <li><b>No2: </b><span th:text="${info.getNo2()}">a</span></li>
+                        <li><b>SO2: </b><span th:text="${info.getSo2()}">a</span></li>
+                        <li><b>Temperature: </b><span th:text="${info.getT()}">a</span></li>
+                        <li><b>Pressure: </b><span th:text="${info.getP()}">a</span></li>
+                        <li><b>Humidity: </b><span th:text="${info.getH()}">a</span></li>
+                        <li><b>Wind: </b><span th:text="${info.getW()}">a</span></li>
+                        <li><b><i>Measure timestamp: </i></b><span th:text="${info.getTimestamp()}">a</span></li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

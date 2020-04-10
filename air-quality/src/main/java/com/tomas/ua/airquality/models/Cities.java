@@ -15,13 +15,6 @@ class Cities {
     @Column(nullable=false, unique=false)
     private String name; //Name of the monitoring station.
 
-    // Localizacao
-    @Column(nullable=false, unique=false)
-    private Double longi; //Longitude
-
-    @Column(nullable=false, unique=false)
-    private Double lati; //Latitude
-
     @Column(nullable=false, unique=false)
     private String timestamp; //Tempo da leitura
 
@@ -61,12 +54,10 @@ class Cities {
     @Column(nullable=true, unique=false)
     private Long w;     //Wind
 
-    public Cities(Long idgerated, Long idx, String name, Double longi, Double lati, String timestamp, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Long t, Long p, Long h, Long w) {
+    public Cities(Long idgerated, Long idx, String name, String timestamp, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Long t, Long p, Long h, Long w) {
         this.idgerated = idgerated;
         this.idx = idx;
         this.name = name;
-        this.longi = longi;
-        this.lati = lati;
         this.timestamp = timestamp;
         this.aqi = aqi;
         this.pm25 = pm25;
@@ -92,14 +83,6 @@ class Cities {
 
     public String getName() {
         return name;
-    }
-
-    public Double getLongi() {
-        return longi;
-    }
-
-    public Double getLati() {
-        return lati;
     }
 
     public String getTimestamp() {
@@ -149,11 +132,9 @@ class Cities {
     @Override
     public String toString() {
         return "Cities{" +
-                "id_gerated=" + idgerated +
+                "idgerated=" + idgerated +
                 ", idx=" + idx +
                 ", name='" + name + '\'' +
-                ", longi=" + longi +
-                ", lati=" + lati +
                 ", timestamp='" + timestamp + '\'' +
                 ", aqi=" + aqi +
                 ", pm25=" + pm25 +
