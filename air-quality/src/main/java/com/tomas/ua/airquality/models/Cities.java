@@ -43,19 +43,18 @@ class Cities {
 
     // Valores temperatura
     @Column(nullable=true, unique=false)
-    private Long t;     //Temperature
+    private Double t;     //Temperature
 
     @Column(nullable=true, unique=false)
-    private Long p;     //Pressure
+    private Double p;     //Pressure
 
     @Column(nullable=true, unique=false)
-    private Long h;     //Humidity
+    private Double h;     //Humidity
 
     @Column(nullable=true, unique=false)
-    private Long w;     //Wind
+    private Double w;     //Wind
 
-    public Cities(Long idgerated, Long idx, String name, String timestamp, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Long t, Long p, Long h, Long w) {
-        this.idgerated = idgerated;
+    public Cities(Long idx, String name, String timestamp, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Double t, Double p, Double h, Double w) {
         this.idx = idx;
         this.name = name;
         this.timestamp = timestamp;
@@ -113,19 +112,19 @@ class Cities {
         return so2;
     }
 
-    public Long getT() {
+    public Double getT() {
         return t;
     }
 
-    public Long getP() {
+    public Double getP() {
         return p;
     }
 
-    public Long getH() {
+    public Double getH() {
         return h;
     }
 
-    public Long getW() {
+    public Double getW() {
         return w;
     }
 
