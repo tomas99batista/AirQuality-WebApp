@@ -1,5 +1,7 @@
 # air-quality-webapp
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/82f0c76c611544da85fc736228288600)](https://www.codacy.com/manual/tomas99batista/AirQuality-WebApp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tomas99batista/AirQuality-WebApp&amp;utm_campaign=Badge_Grade)
+
 API: https://api-docs.airvisual.com/?version=latest
 API Token: 8cbf49d4-de9f-40af-a754-778b9f92f94e
 
