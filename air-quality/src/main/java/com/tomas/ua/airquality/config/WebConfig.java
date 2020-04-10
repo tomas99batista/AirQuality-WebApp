@@ -27,7 +27,6 @@ public class WebConfig implements WebMvcConfigurer {
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("classpath:/templates/");
         templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML5");
 
         return templateResolver;
     }
@@ -51,10 +50,5 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
 
         return resolver;
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
     }
 }

@@ -1,18 +1,19 @@
 package com.tomas.ua.airquality.models;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name="cities")
 @Table(name="city")
+public
 class Cities {
+    @Id
+    @GeneratedValue
+    private Long idgerated;
+
     // Cidade
-    private @Id Long idx; //Unique ID for the city monitoring station.
+    private Long idx; //Unique ID for the city monitoring station.
 
     @Column(nullable=false, unique=false)
     private String name; //Name of the monitoring station.
-
 
     // Localizacao
     @Column(nullable=false, unique=false)
@@ -21,6 +22,8 @@ class Cities {
     @Column(nullable=false, unique=false)
     private Double lati; //Latitude
 
+    @Column(nullable=false, unique=false)
+    private String timestamp; //Tempo da leitura
 
     // Valores
     @Column(nullable=false, unique=false)
@@ -58,12 +61,13 @@ class Cities {
     @Column(nullable=true, unique=false)
     private Long w;     //Wind
 
-
-    public Cities(Long idx, String name, Double longi, Double lati, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Long t, Long p, Long h, Long w) {
+    public Cities(Long idgerated, Long idx, String name, Double longi, Double lati, String timestamp, Double aqi, Double pm25, Double pm10, Double o3, Double no2, Double so2, Long t, Long p, Long h, Long w) {
+        this.idgerated = idgerated;
         this.idx = idx;
         this.name = name;
         this.longi = longi;
         this.lati = lati;
+        this.timestamp = timestamp;
         this.aqi = aqi;
         this.pm25 = pm25;
         this.pm10 = pm10;
@@ -77,6 +81,10 @@ class Cities {
     }
 
     public Cities() {}
+
+    public Long getIdgerated() {
+        return idgerated;
+    }
 
     public Long getIdx() {
         return idx;
@@ -92,6 +100,10 @@ class Cities {
 
     public Double getLati() {
         return lati;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
     }
 
     public Double getAqi() {
@@ -136,11 +148,13 @@ class Cities {
 
     @Override
     public String toString() {
-        return "Models{" +
-                "idx=" + idx +
+        return "Cities{" +
+                "id_gerated=" + idgerated +
+                ", idx=" + idx +
                 ", name='" + name + '\'' +
                 ", longi=" + longi +
                 ", lati=" + lati +
+                ", timestamp='" + timestamp + '\'' +
                 ", aqi=" + aqi +
                 ", pm25=" + pm25 +
                 ", pm10=" + pm10 +

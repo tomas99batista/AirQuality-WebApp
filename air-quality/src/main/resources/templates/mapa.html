@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,21 +16,21 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" style="font-size:25px; font-height: bold;" href="#">AirQuality <i class="fas fa-air-freshener"></i> WebApp</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <a class="navbar-brand" style="font-size:25px; font-height: bold;" th:href="@{/index}">AirQuality <i class="fas fa-air-freshener"></i> WebApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="mapa.html">Mapa  <span class="sr-only">(current)</a>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/mapa}">Mapa <span class="sr-only">(current)</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 
