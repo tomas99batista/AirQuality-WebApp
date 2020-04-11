@@ -14,3 +14,7 @@ Ex: https://api.waqi.info/feed/beijing/?token=41b33a02bd2d16e5f587310917b819e826
 
 ### CI/CD 
 Tutorial used: https://medium.com/faun/continuous-integration-of-java-project-with-github-actions-7a8a0e8246ef
+
+### Pages:
+www.localhost:8080/ -> Infos about Lisbon
+www.localhost:8080/madrid -> Infos about Madrid
