@@ -44,24 +44,23 @@ public class CitiesController {
     // - add TTL
     @GetMapping("/cities/{idx}")
     public Cities getCitiesById (@PathVariable(value = "idx") Long idx) throws JsonProcessingException {
-        System.out.println("1" + idx);
         // SE nao encontrar nada OU SE o que encontrar já não estiver c/ TTL
-        if (citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx) == null || cacheManager.cachenotValid()){
+        if (citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx) == null || cacheManager.cachenotValid(idx)){
             cacheManager.incrementCache_miss();
             // Se o pedido for Lisboa
             if (idx == 8379){
                 Cities retrieve_api = getCityFromApi("Lisbon");
-                cacheManager.setLast_city(retrieve_api);
+                cacheManager.setCities_cache(retrieve_api);
             } // Se o pedido for Madrid
-            else {
+            else { // Madrid: 5725
                 Cities retrieve_api = getCityFromApi("Madrid");
-                cacheManager.setLast_city(retrieve_api);
+                cacheManager.setCities_cache(retrieve_api);
             }
-            System.out.println("MISS, nao esta em cache!");
+            System.out.println("-> MISS, nao esta em cache ou expirou TTL!");
 
         } else {
             cacheManager.incrementCache_hit();
-            System.out.println("HIT, esta em cache!");
+            System.out.println("-> HIT, esta em cache e TTL válido!");
         }
 
         incrementApiCount();
@@ -137,8 +136,8 @@ public class CitiesController {
     }
 
     @GetMapping("/cache")
-    CacheManager returnCache(){
-        return cacheManager;
+    String returnCache(){
+        return cacheManager.toString();
     }
 
     public void incrementApiCount(){
