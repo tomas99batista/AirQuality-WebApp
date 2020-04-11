@@ -2,7 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/82f0c76c611544da85fc736228288600)](https://www.codacy.com/manual/tomas99batista/AirQuality-WebApp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tomas99batista/AirQuality-WebApp&amp;utm_campaign=Badge_Grade)
 
-## First steps
+### First step
 **Configure postgres db on docker:** ```docker run --name postgres  -d -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -d postgres```
 
 API: https://api-docs.airvisual.com/?version=latest
