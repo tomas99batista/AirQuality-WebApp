@@ -41,6 +41,7 @@ public class CacheManager {
         current_time.add(Calendar.MINUTE, 1);
         TTL = current_time;
     }
+    
 
     public void setLast_city(Cities last_city) {
         this.last_city = last_city;
