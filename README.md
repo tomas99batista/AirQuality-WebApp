@@ -8,6 +8,7 @@
 
 ### API used
 API: https://api-docs.airvisual.com/?version=latest
+
 API Token: 8cbf49d4-de9f-40af-a754-778b9f92f94e
 
 Ex: https://api.waqi.info/feed/beijing/?token=41b33a02bd2d16e5f587310917b819e826cdbb58
@@ -17,4 +18,5 @@ Tutorial used: https://medium.com/faun/continuous-integration-of-java-project-wi
 
 ### Pages:
 www.localhost:8080/ -> Infos about Lisbon
+
 www.localhost:8080/madrid -> Infos about Madrid
