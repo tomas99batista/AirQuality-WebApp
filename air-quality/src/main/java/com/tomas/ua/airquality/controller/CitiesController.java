@@ -3,6 +3,7 @@ package com.tomas.ua.airquality.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tomas.ua.airquality.cache.CacheManager;
 import com.tomas.ua.airquality.models.Cities;
 import com.tomas.ua.airquality.models.CitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,29 +21,54 @@ public class CitiesController {
     @Autowired
     CitiesRepository citiesRepository;
 
+    CacheManager cacheManager = new CacheManager();
+
+    static int ApiStats = 0;
+
+    // get all infos from bd
     @GetMapping("/cities")
-    public List<Cities> getAllCities() {
+    List<Cities> getAllCities() {
+        incrementApiCount();
         return citiesRepository.findAll();
     }
 
+    // add a new city: Used for dev and tests by posting through postman
     @PostMapping("/cities")
     Cities newCity (@Valid @RequestBody Cities cities){
+        incrementApiCount();
         return citiesRepository.save(cities);
     }
 
+    // TODO:
+    // - add miss e hits count
+    // - add TTL
     @GetMapping("/cities/{idx}")
-    Cities getCitiesById (@PathVariable(value = "idx") Long idx){
-        // Se ñ tiver vai buscar à api do waqi, se tiver manda aq tem
-        Cities pedido = citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx);
-        if (pedido == null){
-            System.out.println("miss, nao ha na cache");
+    public Cities getCitiesById (@PathVariable(value = "idx") Long idx) throws JsonProcessingException {
+        System.out.println("1" + idx);
+        // SE nao encontrar nada OU SE o que encontrar já não estiver c/ TTL
+        if (citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx) == null || cacheManager.cachenotValid()){
+            cacheManager.incrementCache_miss();
+            // Se o pedido for Lisboa
+            if (idx == 8379){
+                Cities retrieve_api = getCityFromApi("Lisbon");
+                cacheManager.setLast_city(retrieve_api);
+            } // Se o pedido for Madrid
+            else {
+                Cities retrieve_api = getCityFromApi("Madrid");
+                cacheManager.setLast_city(retrieve_api);
+            }
+            System.out.println("MISS, nao esta em cache!");
+
         } else {
-            System.out.println("hit, esta em cache");
+            cacheManager.incrementCache_hit();
+            System.out.println("HIT, esta em cache!");
         }
+
+        incrementApiCount();
         return citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx);
     }
 
-    // TODO:
+    // Call the external api and then save to model
     @GetMapping("/api/{city}")
     Cities getCityFromApi(@PathVariable(value = "city") String city) throws JsonProcessingException {
         final String uri = "https://api.waqi.info/feed/"+city+"/?token=41b33a02bd2d16e5f587310917b819e826cdbb58";
@@ -99,9 +125,24 @@ public class CitiesController {
         Cities cities = new Cities(idx, name, timestamp, aqi, pm25, pm10, o3, no2, so2, t, p, h, w);
         citiesRepository.save(cities);
 
-        System.out.println(cities);
+        //System.out.println(cities);
+        incrementApiCount();
         return cities;
     }
 
-    // Aqui tem de testar a cache hit ou miss, se tiver na bd vai buscar, se nao vai buscar ao site
+    // Return the number of calls to my api
+    @GetMapping("/api/stats")
+    String getApiStats(){
+        return "Calls to Api on this session: "+ ApiStats;
+    }
+
+    @GetMapping("/cache")
+    CacheManager returnCache(){
+        return cacheManager;
+    }
+
+    public void incrementApiCount(){
+        ApiStats++;
+    }
+
 }
