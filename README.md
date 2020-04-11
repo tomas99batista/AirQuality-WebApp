@@ -20,3 +20,6 @@ Tutorial used: https://medium.com/faun/continuous-integration-of-java-project-wi
 www.localhost:8080/ -> Infos about Lisbon
 
 www.localhost:8080/madrid -> Infos about Madrid
+
+### API Doc
+https://documenter.getpostman.com/view/9124304/SzYgSbE4?version=latest
