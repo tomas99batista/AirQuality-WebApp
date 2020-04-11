@@ -5,6 +5,8 @@
 ### First step
 **Configure postgres db on docker:** ```docker run --name postgres  -d -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -d postgres```
 
+
+### Used API
 API: https://api-docs.airvisual.com/?version=latest
 API Token: 8cbf49d4-de9f-40af-a754-778b9f92f94e
 
