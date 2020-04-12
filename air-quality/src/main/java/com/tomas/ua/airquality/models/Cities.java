@@ -3,8 +3,7 @@ import javax.persistence.*;
 
 @Entity(name="cities")
 @Table(name="city")
-public
-class Cities {
+public class Cities {
     @Id
     @GeneratedValue
     private Long idgerated;

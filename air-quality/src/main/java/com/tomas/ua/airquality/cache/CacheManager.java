@@ -43,6 +43,10 @@ public class CacheManager {
         return cities_cache;
     }
 
+    public Cities getCityCachedById(Long idx){
+        return cities_cache.get(idx);
+    }
+
     public boolean cachenotValid(Long idx){
         Calendar current_time = Calendar.getInstance();
         //System.out.println("TTL HASHMAP: " + TTL.values());

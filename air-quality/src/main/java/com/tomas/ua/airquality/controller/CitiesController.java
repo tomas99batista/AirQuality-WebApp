@@ -45,26 +45,28 @@ public class CitiesController {
     @GetMapping("/cities/{idx}")
     public Cities getCitiesById (@PathVariable(value = "idx") Long idx) throws JsonProcessingException {
         // SE nao encontrar nada OU SE o que encontrar já não estiver c/ TTL
+        incrementApiCount();
         if (citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx) == null || cacheManager.cachenotValid(idx)){
             cacheManager.incrementCache_miss();
             // Se o pedido for Lisboa
+            Cities retrieve_api;
             if (idx == 8379){
-                Cities retrieve_api = getCityFromApi("Lisbon");
+                retrieve_api = getCityFromApi("Lisbon");
                 cacheManager.setCities_cache(retrieve_api);
             } // Se o pedido for Madrid
             else { // Madrid: 5725
-                Cities retrieve_api = getCityFromApi("Madrid");
+                retrieve_api = getCityFromApi("Madrid");
                 cacheManager.setCities_cache(retrieve_api);
             }
             System.out.println("-> MISS, nao esta em cache ou expirou TTL!");
+            return retrieve_api;
 
         } else {
             cacheManager.incrementCache_hit();
             System.out.println("-> HIT, esta em cache e TTL válido!");
+            // Vai busca-lo mesmo a cache
+            return cacheManager.getCityCachedById(idx);
         }
-
-        incrementApiCount();
-        return citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx);
     }
 
     // Call the external api and then save to model
