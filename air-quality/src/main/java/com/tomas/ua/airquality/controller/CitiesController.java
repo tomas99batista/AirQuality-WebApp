@@ -46,22 +46,22 @@ public class CitiesController {
         // SE nao encontrar nada OU SE o que encontrar já não estiver c/ TTL
         incrementApiCount();
         if (citiesRepository.findTopByIdxOrderByIdgeratedDesc(idx) == null || cacheManager.cachenotValid(idx)){
-            cacheManager.incrementCache_miss();
+            cacheManager.incrementCacheMiss();
             // Se o pedido for Lisboa
             Cities retrieve_api;
             if (idx == 8379){
                 retrieve_api = getCityFromApi("Lisbon");
-                cacheManager.setCities_cache(retrieve_api);
+                cacheManager.setCitiesCache(retrieve_api);
             } // Se o pedido for Madrid
             else { // Madrid: 5725
                 retrieve_api = getCityFromApi("Madrid");
-                cacheManager.setCities_cache(retrieve_api);
+                cacheManager.setCitiesCache(retrieve_api);
             }
             System.out.println("-> MISS, nao esta em cache ou expirou TTL!");
             return retrieve_api;
 
         } else {
-            cacheManager.incrementCache_hit();
+            cacheManager.incrementCacheHit();
             System.out.println("-> HIT, esta em cache e TTL válido!");
             // Vai busca-lo mesmo a cache
             return cacheManager.getCityCachedById(idx);

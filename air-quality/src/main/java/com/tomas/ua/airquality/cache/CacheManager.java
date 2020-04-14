@@ -18,11 +18,11 @@ public class CacheManager {
         cities_cache = new HashMap<>();
     }
 
-    public void incrementCache_hit() {
+    public void incrementCacheHit() {
         cache_hit++;
     }
 
-    public void incrementCache_miss() {
+    public void incrementCacheMiss() {
         cache_miss++;
     }
 
@@ -32,14 +32,14 @@ public class CacheManager {
         TTL.put(id, current_time);
     }
 
-    public void setCities_cache(Cities city) {
+    public void setCitiesCache(Cities city) {
         cities_cache.put(city.getIdx(), city);
         setTTL(city.getIdx());
         //System.out.println("CITIES CACHE HASHMAP: " + cities_cache);
         System.out.println("CITI ADDED: " + cities_cache + "\nWITH TTL: " + TTL.get(city.getIdx()).getTime());
     }
 
-    public HashMap<Long, Cities> getCities_cache() {
+    public HashMap<Long, Cities> getCitiesCache() {
         return cities_cache;
     }
 
@@ -61,11 +61,11 @@ public class CacheManager {
         }
     }
 
-    public Integer getCache_hit() {
+    public Integer getCacheHit() {
         return cache_hit;
     }
 
-    public Integer getCache_miss() {
+    public Integer getCacheMiss() {
         return cache_miss;
     }
 

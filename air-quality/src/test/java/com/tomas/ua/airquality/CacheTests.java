@@ -5,10 +5,12 @@ import com.tomas.ua.airquality.models.Cities;
 import com.tomas.ua.airquality.repository.CitiesRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
 public class CacheTests {
@@ -27,17 +29,17 @@ public class CacheTests {
 
     @Test
     public void assertMissesandHits(){
-        cacheManager.incrementCache_hit();
-        assertEquals(cacheManager.getCache_hit(), 1);
-        cacheManager.incrementCache_miss();
-        assertEquals(cacheManager.getCache_miss(), 1);
+        cacheManager.incrementCacheHit();
+        assertEquals(cacheManager.getCacheHit(), 1);
+        cacheManager.incrementCacheMiss();
+        assertEquals(cacheManager.getCacheMiss(), 1);
     }
 
     @Test
     public void assertSetandGetCache(){
-        cacheManager.setCities_cache(city);
+        cacheManager.setCitiesCache(city);
         System.out.println(cacheManager);
-        Long city_number = cacheManager.getCities_cache().get((long) 8379).getIdx();
+        Long city_number = cacheManager.getCitiesCache().get((long) 8379).getIdx();
         assertEquals(city_number, city.getIdx());
         assertEquals(city, cacheManager.getCityCachedById((long) 8379));
     }
@@ -45,8 +47,8 @@ public class CacheTests {
 
     @Test
     public void assertTLLTimes(){
-        cacheManager.setCities_cache(city);
-        Long city_number = cacheManager.getCities_cache().get((long) 8379).getIdx();
+        cacheManager.setCitiesCache(city);
+        Long city_number = cacheManager.getCitiesCache().get((long) 8379).getIdx();
         assertFalse(cacheManager.cachenotValid((long) 8379));
         assertFalse(cacheManager.cachenotValid((long) 8379));
     }

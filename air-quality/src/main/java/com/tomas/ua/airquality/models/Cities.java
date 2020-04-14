@@ -1,4 +1,5 @@
 package com.tomas.ua.airquality.models;
+
 import javax.persistence.*;
 
 @Entity(name="cities")

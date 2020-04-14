@@ -16,14 +16,14 @@ import java.util.*;
 
 public class TestmadridTest {
   private WebDriver driver;
-  private Map<String, Object> vars;
+  private Map<String, Object> map_vars;
   JavascriptExecutor js;
   @Before
   public void setUp() {
     System.setProperty("webdriver.chrome.driver","chromedriver");
     driver = new ChromeDriver();
     js = (JavascriptExecutor) driver;
-    vars = new HashMap<String, Object>();
+    map_vars = new HashMap<String, Object>();
   }
   @After
   public void tearDown() {
