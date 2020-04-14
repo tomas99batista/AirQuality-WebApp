@@ -1,0 +1,86 @@
+{
+  "id": "c2f85bb3-d349-48b6-98e0-b2af212c8d88",
+  "version": "2.0",
+  "name": "airquality-webapp",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "48685f9b-2650-444c-9349-72fcfb7d9d28",
+    "name": "test-lisbon",
+    "commands": [{
+      "id": "79fc9091-2e1a-4e49-92f0-f2f6780895bb",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48639eb9-4663-427e-85f7-2d20e4e3f507",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1920x1043",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "569679ea-122f-4b68-8f75-3e126f773c07",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.card-title > span",
+      "targets": [
+        ["css=.card-title > span", "css:finder"],
+        ["xpath=//h3/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Entrecampos, Lisboa, Portugal')]", "xpath:innerText"]
+      ],
+      "value": "Entrecampos, Lisboa, Portugal"
+    }, {
+      "id": "e35d2e99-570e-4a01-b3f5-e93aa2fce2cf",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=li:nth-child(3) > b",
+      "targets": [
+        ["css=li:nth-child(3) > b", "css:finder"],
+        ["xpath=//li[3]/b", "xpath:position"],
+        ["xpath=//b[contains(.,'PM10: ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2aeb42f7-2d7f-427c-b599-96180bbb293a",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=li:nth-child(1) > b",
+      "targets": [
+        ["css=li:nth-child(1) > b", "css:finder"],
+        ["xpath=//b", "xpath:position"],
+        ["xpath=//b[contains(.,'AQI: ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "38635cdc-be81-474a-bc35-cbf1f542a321",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.m-0",
+      "targets": [
+        ["css=.m-0", "css:finder"],
+        ["xpath=//p", "xpath:position"],
+        ["xpath=//p[contains(.,'Lisbon')]", "xpath:innerText"]
+      ],
+      "value": "Lisbon"
+    }, {
+      "id": "a3660b78-0283-4eb8-bdc7-e86365b93889",
+      "comment": "",
+      "command": "verifyTitle",
+      "target": "AirQuality",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cfb4935c-b2a1-4120-b3c5-3eb827b13296",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["48685f9b-2650-444c-9349-72fcfb7d9d28"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

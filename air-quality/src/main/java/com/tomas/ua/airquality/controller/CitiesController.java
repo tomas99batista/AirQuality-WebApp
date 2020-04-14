@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tomas.ua.airquality.cache.CacheManager;
 import com.tomas.ua.airquality.models.Cities;
-import com.tomas.ua.airquality.models.CitiesRepository;
+import com.tomas.ua.airquality.repository.CitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -23,18 +23,18 @@ public class CitiesController {
 
     CacheManager cacheManager = new CacheManager();
 
-    static int ApiStats = 0;
+    public static int ApiStats = 0;
 
     // get all infos from bd
     @GetMapping("/cities")
-    List<Cities> getAllCities() {
+    public List<Cities> getAllCities() {
         incrementApiCount();
         return citiesRepository.findAll();
     }
 
     // add a new city: Used for dev and tests by posting through postman
     @PostMapping("/cities")
-    Cities newCity (@Valid @RequestBody Cities cities){
+    public Cities newCity (@Valid @RequestBody Cities cities){
         incrementApiCount();
         return citiesRepository.save(cities);
     }
@@ -71,7 +71,7 @@ public class CitiesController {
 
     // Call the external api and then save to model
     @GetMapping("/api/{city}")
-    Cities getCityFromApi(@PathVariable(value = "city") String city) throws JsonProcessingException {
+    public Cities getCityFromApi(@PathVariable(value = "city") String city) throws JsonProcessingException {
         final String uri = "https://api.waqi.info/feed/"+city+"/?token=41b33a02bd2d16e5f587310917b819e826cdbb58";
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -133,12 +133,12 @@ public class CitiesController {
 
     // Return the number of calls to my api
     @GetMapping("/api/stats")
-    String getApiStats(){
+    public String getApiStats(){
         return "Calls to Api on this session: "+ ApiStats;
     }
 
     @GetMapping("/cache")
-    String returnCache(){
+    public String returnCache(){
         return cacheManager.toString();
     }
 

@@ -1,21 +1,11 @@
 package com.tomas.ua.airquality.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tomas.ua.airquality.models.Cities;
-import com.tomas.ua.airquality.models.CitiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-
-import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.List;
 
 @Controller
 class WebController {

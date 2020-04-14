@@ -71,6 +71,8 @@ public class Cities {
 
     public Cities() {}
 
+
+
     public Long getIdgerated() {
         return idgerated;
     }

@@ -53,10 +53,20 @@ public class CacheManager {
         if (current_time.before(TTL.get(idx)) || current_time.equals(TTL.get(idx))){
             System.out.println("-- CACHE TTL VALID: " + cities_cache.get(idx).getName() + "\n\tTTL Value: " + TTL.get(idx).getTime());
             return false;
-        } else {
+        } else if (current_time.after(TTL.get(idx))){
             System.out.println("-- CACHE TTL NOT VALID: " + cities_cache.get(idx).getName() + "\n\tTTL Value: " + TTL.get(idx).getTime());
             return true;
+        } else {
+            return true;
         }
+    }
+
+    public Integer getCache_hit() {
+        return cache_hit;
+    }
+
+    public Integer getCache_miss() {
+        return cache_miss;
     }
 
     @Override
