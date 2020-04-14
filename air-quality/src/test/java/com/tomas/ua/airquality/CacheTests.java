@@ -48,7 +48,6 @@ public class CacheTests {
     @Test
     public void assertTLLTimes(){
         cacheManager.setCitiesCache(city);
-        Long city_number = cacheManager.getCitiesCache().get((long) 8379).getIdx();
         assertFalse(cacheManager.cachenotValid((long) 8379));
         assertFalse(cacheManager.cachenotValid((long) 8379));
     }
