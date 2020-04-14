@@ -4,19 +4,15 @@ package com.tomas.ua.airquality;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNot.not;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.JavascriptExecutor;
 import java.util.*;
-import java.net.URL;
+
 
 public class TestlisbonTest {
   private WebDriver driver;
