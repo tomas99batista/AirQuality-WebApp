@@ -48,20 +48,20 @@
         <div class="col-md-7 mb-12">
             <div class="card h-100">
                 <div class="card-body">
-                    <h3 class="card-title">Station: <span th:text="${info.getName()}"></span></h3>
+                    <h3 class="card-title">Station: <span th:text="${info.getName()}">-</span></h3>
                     <p class="card-text">
                     <ul>
-                        <li><b>AQI: </b><span th:text="${info.getAqi()}">a</span></li>
-                        <li><b>PM2.5: </b><span th:text="${info.getPm25()}">a</span></li>
-                        <li><b>PM10: </b><span th:text="${info.getPm10()}">a</span></li>
-                        <li><b>O3: </b><span th:text="${info.getO3()}">a</span></li>
-                        <li><b>No2: </b><span th:text="${info.getNo2()}">a</span></li>
-                        <li><b>SO2: </b><span th:text="${info.getSo2()}">a</span></li>
-                        <li><b>Temperature: </b><span th:text="${info.getT()}">a</span></li>
-                        <li><b>Pressure: </b><span th:text="${info.getP()}">a</span></li>
-                        <li><b>Humidity: </b><span th:text="${info.getH()}">a</span></li>
-                        <li><b>Wind: </b><span th:text="${info.getW()}">a</span></li>
-                        <li><b><i>Measure timestamp: </i></b><span th:text="${info.getTimestamp()}">a</span></li>
+                        <li><b>AQI: </b><span th:text="${info.getAqi()}">-</span></li>
+                        <li><b>PM2.5: </b><span th:text="${info.getPm25()}">-</span></li>
+                        <li><b>PM10: </b><span th:text="${info.getPm10()}">-</span></li>
+                        <li><b>O3: </b><span th:text="${info.getO3()}">-</span></li>
+                        <li><b>NO2: </b><span th:text="${info.getNo2()}">-</span></li>
+                        <li><b>SO2: </b><span th:text="${info.getSo2()}">-</span></li>
+                        <li><b>Temperature: </b><span th:text="${info.getT()}">-</span></li>
+                        <li><b>Pressure: </b><span th:text="${info.getP()}">-</span></li>
+                        <li><b>Humidity: </b><span th:text="${info.getH()}">-</span></li>
+                        <li><b>Wind: </b><span th:text="${info.getW()}">-</span></li>
+                        <li><b><i>Measure timestamp: </i></b><span th:text="${info.getTimestamp()}">-</span></li>
                     </ul>
                     </p>
                 </div>
