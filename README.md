@@ -22,4 +22,3 @@ www.localhost:8080/madrid -> Infos about Madrid
 
 ## API Doc
 [API Documentation](https://documenter.getpostman.com/view/9124304/SzYgSbE4?version=latest)
-
