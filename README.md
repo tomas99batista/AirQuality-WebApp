@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d962c5764bbf4569b394e2b62a7bf542)](https://www.codacy.com/manual/tomas99batista/AirQuality-WebApp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tomas99batista/AirQuality-WebApp&amp;utm_campaign=Badge_Grade)
 
+![Build sample Java Maven project](https://github.com/tomas99batista/AirQuality-WebApp/workflows/Build%20sample%20Java%20Maven%20project/badge.svg)
+
 ## First step
 **Configure postgres db on docker:** ```docker run --name postgres  -d -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -d postgres```
 
