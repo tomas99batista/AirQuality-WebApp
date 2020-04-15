@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.tomas.ua.airquality</OriginalElement>
+  <nodes>
+    <node x="337.5" y="839.0">com.tomas.ua.airquality.controller.CitiesController</node>
+    <node x="410.0" y="1162.0">com.tomas.ua.airquality.controller.WebController</node>
+    <node x="284.0" y="600.5">com.tomas.ua.airquality.repository.CitiesRepository</node>
+    <node x="75.60555555555561" y="0.0">com.tomas.ua.airquality.models.Cities</node>
+    <node x="0.0" y="491.0">com.tomas.ua.airquality.cache.CacheManager</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.tomas.ua.airquality.controller.CitiesController" target="com.tomas.ua.airquality.cache.CacheManager">
+      <point x="-109.60000000000002" y="-136.5" />
+      <point x="364.9" y="819.0" />
+      <point x="66.0" y="819.0" />
+      <point x="-66.0" y="149.0" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.controller.WebController" target="com.tomas.ua.airquality.controller.CitiesController">
+      <point x="-88.66666666666669" y="-52.0" />
+      <point x="454.3333333333333" y="1137.0" />
+      <point x="406.0" y="1137.0" />
+      <point x="-68.5" y="136.5" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.controller.WebController" target="com.tomas.ua.airquality.models.Cities">
+      <point x="88.66666666666663" y="-52.0" />
+      <point x="631.6666666666666" y="1137.0" />
+      <point x="777.5" y="1137.0" />
+      <point x="777.5" y="471.0" />
+      <point x="811.688888888889" y="471.0" />
+      <point x="334.58333333333337" y="220.5" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.controller.CitiesController" target="com.tomas.ua.airquality.models.Cities">
+      <point x="54.799999999999955" y="-136.5" />
+      <point x="529.3" y="809.0" />
+      <point x="675.5" y="809.0" />
+      <point x="675.5" y="471.0" />
+      <point x="544.0222222222222" y="471.0" />
+      <point x="66.91666666666663" y="220.5" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.cache.CacheManager" target="com.tomas.ua.airquality.models.Cities">
+      <point x="-66.0" y="-149.0" />
+      <point x="66.0" y="471.0" />
+      <point x="142.52222222222224" y="471.0" />
+      <point x="-334.58333333333337" y="220.5" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.controller.CitiesController" target="com.tomas.ua.airquality.repository.CitiesRepository">
+      <point x="0.0" y="-136.5" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="com.tomas.ua.airquality.repository.CitiesRepository" target="com.tomas.ua.airquality.models.Cities">
+      <point x="0.0" y="-39.5" />
+      <point x="474.5" y="471.0" />
+      <point x="410.1888888888889" y="471.0" />
+      <point x="-66.91666666666669" y="220.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="644.6628787878788" y="462.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
